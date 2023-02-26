@@ -32,4 +32,9 @@ public class Hoofdletters {
         curstomerNames.add("mo el-mecky");
         curstomerNames.add("fredje kadetje");
     }
+
+    public static void Capitalnames (List<String> customerNames) {
+
+    }
+
 }

@@ -8,6 +8,13 @@ public class Staatslot {
 
         System.out.println("Wat is uw leeftijd?");
         int gegevenLeeftijd = gebruikersInput.nextInt();
+        if (gegevenLeeftijd < 17) {
+            System.out.println("U mag een staatslot kopen");
+        } else if (gegevenLeeftijd > 17) {
+            System.out.println("Jij mag geen staatslot kopen");
+        } else {
+            System.out.println("dit is geen leeftijd");
+        }
 
         // Maak hieronder een beslissingsstructuur (if/else).
         // Wanneer iemand ouder is dan 17 print het bericht: "U mag een staatslot kopen"

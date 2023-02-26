@@ -11,5 +11,14 @@ public class DeelbaarDoorVijf {
 
     public static void main(String[] sammieKijkOmhoog) {
         int chosenNumber = 44;
+
+    }
+
+    public void String  (int chosenNumber) {
+        if (chosenNumber / 5) {
+            System.out.println("Deelbaar door vijf");
+        } else {
+            System.out.println("Ondeelbaar door vijf");
+        }
     }
 }
