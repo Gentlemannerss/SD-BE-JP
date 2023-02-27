@@ -11,11 +11,11 @@ public class DeelbaarDoorVijf {
 
     public static void main(String[] sammieKijkOmhoog) {
         int chosenNumber = 44;
-
+        tellen(chosenNumber);
     }
 
-    public void String  (int chosenNumber) {
-        if (chosenNumber / 5) {
+    public static void tellen(int chosenNumber) {
+        if (chosenNumber % 5 == 0) {
             System.out.println("Deelbaar door vijf");
         } else {
             System.out.println("Ondeelbaar door vijf");

@@ -24,15 +24,16 @@ public class Korting {
         "De klant krijgt 16% korting. Het aankoopbedrag is nu: -HIER HET BEDRAG MET KORTING-"
          */
         if (aankoopBedrag < 75) {
-            System.out.println("De klant krijgt geen korting. Het aankoopbedrag blijft" + aankoopBedrag);
-        } else if (aankoopBedrag < 300) {
-            /*double aankoopPercentage = 0;
-            double nieuwAankoopbedrag = 0;
-            aankoopBedrag / 100 = aankoopPercentage;
-            aankoopPercentage * 90 = nieuwAankoopbedrag;*/
-            System.out.println("De klant krijgt 10% korting. Het aankoopbedrag is nu:" + aankoopBedrag);
+            System.out.println("De klant krijgt geen korting. Het aankoopbedrag blijft " + aankoopBedrag);
+        } else if (aankoopBedrag <= 300) {
+//            double aankoopPercentage = 0;
+            double nieuwAankoopbedrag = aankoopBedrag * 0.9;
+//            aankoopBedrag / 100 = aankoopPercentage;
+//            aankoopPercentage * 90 = nieuwAankoopbedrag;
+            System.out.println("De klant krijgt 10% korting. Het aankoopbedrag is nu: " + nieuwAankoopbedrag);
         } else {
-            System.out.println();
+            double nieuwNieuwAankoopbedrag = aankoopBedrag * 0.84;
+            System.out.println("De klant krijgt 16% korting. Het aankoopbedrag is nu: " + nieuwNieuwAankoopbedrag);
         }
     }
 }
