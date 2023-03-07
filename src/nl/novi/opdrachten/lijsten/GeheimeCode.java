@@ -1,6 +1,7 @@
 package nl.novi.opdrachten.lijsten;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GeheimeCode {
@@ -14,6 +15,11 @@ public class GeheimeCode {
         laResistanceMembers = addMembers(laResistanceMembers, "Henrie");
         laResistanceMembers = addMembers(laResistanceMembers, "Piet");
         laResistanceMembers = addMembers(laResistanceMembers, "LeDroitCestMoi");
+
+
+        System.out.println(encryptList(laResistanceMembers));
+        System.out.println("----------");
+        System.out.println(decryptedList(laResistanceMembers));
 
         /*
         Opdracht 1: Hierboven zijn via de methode addMembers, leden aan de lijst toegevoegd. Pas de Methode zo aan dat
@@ -37,7 +43,67 @@ public class GeheimeCode {
     }
 
     private static List<String> addMembers(List<String> members, String name) {
-        members.add(name);
+        if (!members.contains(name)) {
+            members.add(name);
+        }
         return members;
     }
+
+    public static List<String> encryptList(List<String> list) {
+        List<String> encryptedList = new ArrayList<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            String name = list.get(i);
+            StringBuilder encryptedName = new StringBuilder();
+
+            for (int j = 0; j < name.length(); j++) {
+                char c = name.charAt(j);
+
+                if (Character.isLetter(c)) {
+                    int num = Character.toUpperCase(c) - 'A' + 1;
+                    if (Character.isUpperCase(c)) {
+                        num += 100;
+                    }
+                    encryptedName.append(num);
+                    if (j < name.length() - 1) {
+                        encryptedName.append("-");
+                    }
+                }
+            }
+
+            if (i % 2 == 1) {
+                encryptedName.reverse();
+            }
+
+            encryptedList.add(encryptedName.toString());
+        }
+
+        return encryptedList;
+    }
+
+    public static List<String> decryptedList(List<String> encryptedList) {
+        List<String> decryptedList = new ArrayList<>();
+
+        for (String encryptedName : encryptedList) {
+            StringBuilder decryptedName = new StringBuilder();
+            String[] nameParts = encryptedName.split("-");
+
+            for (String part : nameParts) {
+                int number = Integer.parseInt(part);
+                if (number >= 100) {
+                    decryptedName.append((char) (number - 100 + 'A'));
+                } else {
+                    decryptedName.append((char) (number + 'a' - 1));
+                }
+            }
+
+            if (decryptedList.size() % 2 == 1) {
+                decryptedName.reverse();
+            }
+
+            decryptedList.add(decryptedName.toString());
+        }
+        return decryptedList;
+    }
 }
+

@@ -43,6 +43,7 @@ public class ListOefening {
         clubNames.add("AFC Amsterdam");
         clubNames.add("AFC");
 
+        System.out.println(clubNames); //test welke namen in de clubnames zitten
         sortAndFilterNames(clubNames);
         System.out.println(clubNames);
 
@@ -50,6 +51,9 @@ public class ListOefening {
         // Vraag 4: Kun je hetzelfde doen als hierboven, maar PSV moet dan laatste zijn.
         clubNames.add("Zlotty FC");
         clubNames.add("SC Eindhoven");
+
+        sortAndFilterPsv(clubNames);
+        System.out.println(clubNames);
     }
 
     public static void addClubNameIfNotExists(List<String> clubNames, String name) {

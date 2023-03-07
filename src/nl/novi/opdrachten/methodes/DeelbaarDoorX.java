@@ -1,5 +1,8 @@
 package nl.novi.opdrachten.methodes;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 /**
  * Schrijf een methode die twee Integers ontvangt.
  * De eerste parameter heet 'number', de tweede 'divisible'
@@ -24,4 +27,35 @@ package nl.novi.opdrachten.methodes;
  */
 
 public class DeelbaarDoorX {
+    public static void main(String[] args) {
+        userInput();
+    }
+
+    public static void userInput() {
+        Scanner scanner = new Scanner(System.in);
+        int number = 0;
+        try {
+            System.out.println("What number do you want to divide");
+            number = scanner.nextInt();
+            System.out.println("You entered: " + number);
+        } catch (InputMismatchException e) {
+            System.out.println("This is not a valid number, please enter a number.");
+            return;
+        }
+
+        System.out.println("By how much do you want to divide it");
+        int divisible = scanner.nextInt();
+
+        if (number % divisible == 0) {
+            System.out.println("Het getal: " + number + "is deelbaar door:" + divisible);
+        } else {
+            int diffrence = divisible - (number % divisible);
+            if (diffrence < 0) {
+                System.out.println("Het getal:" + number + " is niet deelbaar door:" + divisible + "verhoog het getal met " + Math.abs(diffrence));
+            } else {
+                System.out.println("Het getal:" + number + " is niet deelbaar door:" + divisible + "verlaag het getal met " + diffrence);
+            }
+
+        }
+    }
 }
