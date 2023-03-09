@@ -1,6 +1,7 @@
 package nl.novi.opdrachten.methodes;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,23 +19,33 @@ import java.util.List;
 public class Hoofdletters {
 
     public static void main(String[] args) {
-        List<String> curstomerNames = new ArrayList<>();
+        List<String> customerNames = new ArrayList<>();
 
-        curstomerNames.add("nick piraat");
-        curstomerNames.add("michael jackson");
-        curstomerNames.add("glennis grace");
-        curstomerNames.add("dreetje hazes");
-        curstomerNames.add("robbie williams");
-        curstomerNames.add("michiel de ruyter");
-        curstomerNames.add("sjaak polak");
-        curstomerNames.add("jan van jansen");
-        curstomerNames.add("henk den hartog");
-        curstomerNames.add("mo el-mecky");
-        curstomerNames.add("fredje kadetje");
+        customerNames.add("nick piraat");
+        customerNames.add("michael jackson");
+        customerNames.add("glennis grace");
+        customerNames.add("dreetje hazes");
+        customerNames.add("robbie williams");
+        customerNames.add("michiel de ruyter");
+        customerNames.add("sjaak polak");
+        customerNames.add("jan van jansen");
+        customerNames.add("henk den hartog");
+        customerNames.add("mo el-mecky");
+        customerNames.add("fredje kadetje");
+
+        List<String> listCaptial = capitalnames(customerNames);
+
+        System.out.println(listCaptial);
     }
 
-    public static void Capitalnames (List<String> customerNames) {
-
+    public static List<String> capitalnames (List<String> oldList) {
+        List<String> newList = new ArrayList<>();
+        for (String str : oldList) {
+            String[] nameAsArray = str.split("");
+            String newChar = nameAsArray[0].toUpperCase();
+            String restOfName = String.join("", Arrays.copyOfRange(nameAsArray, 1, nameAsArray.length));
+            newList.add(newChar + restOfName);
+        } return newList;
     }
 
 }
